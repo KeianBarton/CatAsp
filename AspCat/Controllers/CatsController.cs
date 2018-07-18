@@ -35,6 +35,7 @@ namespace AspCat.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(CatFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
