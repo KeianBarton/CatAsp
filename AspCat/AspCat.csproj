@@ -6,8 +6,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20180718091732_InitialModel.cs" />
+    <Compile Remove="Data\Migrations\20180718091732_InitialModel.Designer.cs" />
     <Compile Remove="Data\Migrations\20180718093822_AddedBasicEntityConfig.cs" />
     <Compile Remove="Data\Migrations\20180718093822_AddedBasicEntityConfig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718094206_AddedBasicEntityConfig.cs" />
+    <Compile Remove="Data\Migrations\20180718094206_AddedBasicEntityConfig.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718105932_RemovedCatAge.cs" />
+    <Compile Remove="Data\Migrations\20180718105932_RemovedCatAge.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718110637_ImprovedCatFormViewModel.cs" />
+    <Compile Remove="Data\Migrations\20180718110637_ImprovedCatFormViewModel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718112158_Foo.cs" />
+    <Compile Remove="Data\Migrations\20180718112158_Foo.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718115443_ImprovingValidation.cs" />
+    <Compile Remove="Data\Migrations\20180718115443_ImprovingValidation.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718115729_AddedCatFormViewModel.cs" />
+    <Compile Remove="Data\Migrations\20180718115729_AddedCatFormViewModel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718115906_BasicEntityConfigAndCatFormViewModel.cs" />
+    <Compile Remove="Data\Migrations\20180718115906_BasicEntityConfigAndCatFormViewModel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718120003_BasicEntityConfigAndCatFormViewModel.cs" />
+    <Compile Remove="Data\Migrations\20180718120003_BasicEntityConfigAndCatFormViewModel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180718120115_BasicEntityConfigAndCatFormViewModel.cs" />
+    <Compile Remove="Data\Migrations\20180718120115_BasicEntityConfigAndCatFormViewModel.Designer.cs" />
   </ItemGroup>
 
 

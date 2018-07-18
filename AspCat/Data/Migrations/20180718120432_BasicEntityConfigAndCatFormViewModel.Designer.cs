@@ -11,8 +11,8 @@ using System;
 namespace AspCat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180718094206_AddedBasicEntityConfig")]
-    partial class AddedBasicEntityConfig
+    [Migration("20180718120432_BasicEntityConfigAndCatFormViewModel")]
+    partial class BasicEntityConfigAndCatFormViewModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,17 +89,16 @@ namespace AspCat.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Age");
-
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<int?>("BreedId");
+                    b.Property<int>("BreedId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("OwnerId");
+                    b.Property<string>("OwnerId")
+                        .IsRequired();
 
                     b.Property<double>("Weight");
 
@@ -224,11 +223,13 @@ namespace AspCat.Data.Migrations
                 {
                     b.HasOne("AspCat.Models.Breed", "Breed")
                         .WithMany()
-                        .HasForeignKey("BreedId");
+                        .HasForeignKey("BreedId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AspCat.Models.ApplicationUser", "Owner")
                         .WithMany()
-                        .HasForeignKey("OwnerId");
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

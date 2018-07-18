@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace AspCat.Data.Migrations
@@ -88,9 +90,7 @@ namespace AspCat.Data.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<byte>("BreedId");
-
-                    b.Property<int?>("BreedId1");
+                    b.Property<int>("BreedId");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -103,7 +103,7 @@ namespace AspCat.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BreedId1");
+                    b.HasIndex("BreedId");
 
                     b.HasIndex("OwnerId");
 
@@ -222,7 +222,8 @@ namespace AspCat.Data.Migrations
                 {
                     b.HasOne("AspCat.Models.Breed", "Breed")
                         .WithMany()
-                        .HasForeignKey("BreedId1");
+                        .HasForeignKey("BreedId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AspCat.Models.ApplicationUser", "Owner")
                         .WithMany()

@@ -12,7 +12,7 @@ namespace AspCat.Models
 
         public Breed Breed { get; set; }
 
-        public byte BreedId { get; set; }
+        public int BreedId { get; set; }
 
         public double Weight { get; set; }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace AspCat.Data.Migrations
 {
-    public partial class InitialModel : Migration
+    public partial class BasicEntityConfigAndCatFormViewModel : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,11 +40,10 @@ namespace AspCat.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Age = table.Column<int>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    BreedId = table.Column<int>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    OwnerId = table.Column<string>(nullable: true),
+                    BreedId = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    OwnerId = table.Column<string>(nullable: false),
                     Weight = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
@@ -55,13 +54,13 @@ namespace AspCat.Data.Migrations
                         column: x => x.BreedId,
                         principalTable: "Breeds",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Cats_AspNetUsers_OwnerId",
                         column: x => x.OwnerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

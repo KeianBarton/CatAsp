@@ -11,8 +11,8 @@ using System;
 namespace AspCat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180718110637_ImprovedCatFormViewModel")]
-    partial class ImprovedCatFormViewModel
+    [Migration("20180718120628_InitialBreeds")]
+    partial class InitialBreeds
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,9 +91,7 @@ namespace AspCat.Data.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<byte>("BreedId");
-
-                    b.Property<int?>("BreedId1");
+                    b.Property<int>("BreedId");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -106,7 +104,7 @@ namespace AspCat.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BreedId1");
+                    b.HasIndex("BreedId");
 
                     b.HasIndex("OwnerId");
 
@@ -225,7 +223,8 @@ namespace AspCat.Data.Migrations
                 {
                     b.HasOne("AspCat.Models.Breed", "Breed")
                         .WithMany()
-                        .HasForeignKey("BreedId1");
+                        .HasForeignKey("BreedId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("AspCat.Models.ApplicationUser", "Owner")
                         .WithMany()
