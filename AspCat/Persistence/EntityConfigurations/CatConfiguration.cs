@@ -21,6 +21,12 @@ namespace AspCat.Persistence.EntityConfigurations
             builder.Property(c => c.Weight)
                 .IsRequired();
 
+            builder.Property(c => c.BreedId)
+                .IsRequired();
+
+            builder.Property(c => c.OwnerId)
+                .IsRequired();
+
             // Relationship configurations
         }
     }

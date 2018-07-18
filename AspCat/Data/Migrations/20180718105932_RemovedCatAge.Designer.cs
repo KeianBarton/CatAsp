@@ -11,9 +11,10 @@ using System;
 namespace AspCat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180718105932_RemovedCatAge")]
+    partial class RemovedCatAge
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,22 +91,19 @@ namespace AspCat.Data.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<byte>("BreedId");
-
-                    b.Property<int?>("BreedId1");
+                    b.Property<int?>("BreedId");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.Property<string>("OwnerId")
-                        .IsRequired();
+                    b.Property<string>("OwnerId");
 
                     b.Property<double>("Weight");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BreedId1");
+                    b.HasIndex("BreedId");
 
                     b.HasIndex("OwnerId");
 
@@ -224,12 +222,11 @@ namespace AspCat.Data.Migrations
                 {
                     b.HasOne("AspCat.Models.Breed", "Breed")
                         .WithMany()
-                        .HasForeignKey("BreedId1");
+                        .HasForeignKey("BreedId");
 
                     b.HasOne("AspCat.Models.ApplicationUser", "Owner")
                         .WithMany()
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("OwnerId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

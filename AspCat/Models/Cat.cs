@@ -8,14 +8,16 @@ namespace AspCat.Models
 
         public string Name { get; set; }
 
-        public int Age { get; set; }
-
         public DateTime BirthDate { get; set; }
 
         public Breed Breed { get; set; }
 
+        public byte BreedId { get; set; }
+
         public double Weight { get; set; }
 
         public ApplicationUser Owner { get; set; }
+
+        public string OwnerId { get; set; }
     }
 }

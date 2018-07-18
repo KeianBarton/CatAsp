@@ -1,0 +1,24 @@
+﻿@model CatFormViewModel
+@{
+    ViewData["Title"] = "Add a Cat";
+}
+<h2>Add a Cat</h2>
+<form asp-controller="Cats" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Breed"></label>
+        <select asp-for="Breed" asp-items="Model.Breeds" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Weight"></label>
+        <input asp-for="Weight" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
