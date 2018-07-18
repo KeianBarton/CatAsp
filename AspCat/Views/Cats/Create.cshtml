@@ -5,26 +5,26 @@
 <h2>Add a Cat</h2>
 <form asp-controller="Cats" asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" />
-        <small asp-validation-for="Name" class="form-text text-muted"></small>
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" autofocus="autofocus" />
+        <span asp-validation-for="Name" class="form-text text-muted"></span>
     </div>
     <div class="form-group">
-        <label asp-for="BirthDateText"></label>
-        <input asp-for="BirthDateText" class="form-control" />
-        <small asp-validation-for="BirthDateText" class="form-text text-muted"></small>
+        <label asp-for="BirthDateText" class="control-label"></label>
+        <input asp-for="BirthDateText" class="form-control" placeholder="01/01/2000"/>
+        <span asp-validation-for="BirthDateText" class="form-text text-muted"></span>
     </div>
     <div class="form-group">
-        <label asp-for="BreedId"></label>
+        <label asp-for="BreedId" class="control-label"></label>
         <select asp-for="BreedId" asp-items="Model.Breeds" class="form-control">
-            <option disabled selected value="">Please select...</option>
+            <option value=""></option>
         </select>
-        <small asp-validation-for="BreedId" class="form-text text-muted"></small>
+        <span asp-validation-for="BreedId" class="form-text text-muted"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Weight"></label>
+        <label asp-for="Weight" class="control-label"></label>
         <input asp-for="Weight" class="form-control" />
-        <small asp-validation-for="Weight" class="form-text text-muted"></small>
+        <span asp-validation-for="Weight" class="form-text text-muted"></span>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>

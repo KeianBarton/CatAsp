@@ -47,10 +47,10 @@ namespace AspCat.Controllers
             var cat = new Cat
             {
                 BirthDate = viewModel.GetBirthDate(),
-                BreedId = viewModel.BreedId,
+                BreedId = (int) viewModel.BreedId,
                 Name = viewModel.Name,
                 OwnerId = _userManager.GetUserId(User),
-                Weight = viewModel.Weight
+                Weight = (double) viewModel.Weight
             };
 
             _context.Cats.Add(cat);

@@ -8,23 +8,23 @@ namespace AspCat.ViewModels
 {
     public class CatFormViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
-        [Required]
-        [ValidDate]
+        [Required(ErrorMessage = "Date of Birth is required")]
+        [ValidDate(ErrorMessage = "Date of Birth is invalid; please use dd/mm/yyyy format")]
         [Display(Name = "Date of Birth")]
         public string BirthDateText { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Breed is required")]
         [Display(Name = "Breed")]
-        public byte BreedId { get; set; }
+        public byte? BreedId { get; set; }
 
         public IEnumerable<SelectListItem> Breeds { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Weight is required")]
         [Display(Name = "Weight (Kg)")]
-        public double Weight { get; set; }
+        public double? Weight { get; set; }
 
         public DateTime GetBirthDate()
         {
