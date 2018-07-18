@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Linq;
 
 namespace AspCat.Controllers
@@ -40,7 +39,7 @@ namespace AspCat.Controllers
         {
             var cat = new Cat
             {
-                BirthDate = DateTime.Parse(viewModel.BirthDate),
+                BirthDate = viewModel.BirthDate,
                 BreedId = viewModel.BreedId,
                 Name = viewModel.Name,
                 OwnerId = _userManager.GetUserId(User),

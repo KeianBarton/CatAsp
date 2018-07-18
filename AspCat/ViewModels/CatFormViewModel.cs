@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AspCat.ViewModels
 {
@@ -7,8 +9,17 @@ namespace AspCat.ViewModels
     {
         public string Name { get; set; }
 
-        public string BirthDate { get; set; }
+        public DateTime BirthDate {
+            get
+            {
+                return DateTime.Parse(BirthDateText);
+            }
+        }
 
+        [Display(Name = "Date of Birth")]
+        public string BirthDateText { get; set; }
+
+        [Display(Name = "Breed")]
         public byte BreedId { get; set; }
 
         public IEnumerable<SelectListItem> Breeds { get; set; }
