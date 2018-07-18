@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-AspCat-1A4674A6-0405-4F07-8834-B1AC6ED555A8</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20180718093822_AddedBasicEntityConfig.cs" />
+    <Compile Remove="Data\Migrations\20180718093822_AddedBasicEntityConfig.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
