@@ -47,3 +47,8 @@ body {
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+.form-control:focus {
+    border-color: #495057;
+    box-shadow: none;
+}

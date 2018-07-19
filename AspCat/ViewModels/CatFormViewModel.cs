@@ -9,6 +9,7 @@ namespace AspCat.ViewModels
     public class CatFormViewModel
     {
         [Required(ErrorMessage = "Name is required")]
+        [MaxLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
@@ -24,6 +25,7 @@ namespace AspCat.ViewModels
 
         [Required(ErrorMessage = "Weight is required")]
         [Display(Name = "Weight (Kg)")]
+        [Range(1, 50, ErrorMessage = "Weight must between 1kg and 50kg")]
         public double? Weight { get; set; }
 
         public DateTime GetBirthDate()

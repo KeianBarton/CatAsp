@@ -12,23 +12,31 @@
 
     <environment include="Development">
         <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="~/fonts/fontawesome-free-5.1.1-web/css/fontawesome.css" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/fonts/fontawesome-free-5.1.1-web/css/all.css" rel="stylesheet">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="~/css/site.css" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"
+        <link href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+              integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+              crossorigin="anonymous"
+              rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+              integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+              crossorigin="anonymous"
+              rel="stylesheet"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute">
+        <link href="~/css/site.min.css" asp-append-version="true" rel="stylesheet">
     </environment>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
         <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AspCat</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><i class="fas fa-paw"></i></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,9 +48,6 @@
                     </li>
                     <li class="nav-item">
                         <a asp-area="" asp-controller="Home" asp-action="About" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-link">Contact</a>
                     </li>
                     @if (SignInManager.IsSignedIn(User))
                     {
@@ -70,8 +75,12 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+                integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+                crossorigin="anonymous"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
