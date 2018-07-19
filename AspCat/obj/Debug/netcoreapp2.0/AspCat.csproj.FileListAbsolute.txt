@@ -3,10 +3,10 @@ C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\bin\Debug\netcoreapp2.0\AspCat.
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\bin\Debug\netcoreapp2.0\AspCat.runtimeconfig.dev.json
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\bin\Debug\netcoreapp2.0\AspCat.dll
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\bin\Debug\netcoreapp2.0\AspCat.pdb
-C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.csprojResolveAssemblyReference.cache
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.csproj.CoreCompileInputs.cache
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.AssemblyInfoInputs.cache
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.AssemblyInfo.cs
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.dll
 C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.pdb
+C:\Projects\ASP .NET MVC - ASP Cat\AspCat\AspCat\obj\Debug\netcoreapp2.0\AspCat.csprojResolveAssemblyReference.cache
