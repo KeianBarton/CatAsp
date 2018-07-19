@@ -1,0 +1,18 @@
+﻿@model CatsViewModel
+@{
+    ViewData["Title"] = "View Cats";
+}
+<ul>
+    @foreach (var cat in Model.Cats)
+    {
+        <li class="card row">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@cat.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@cat.Breed.Name</h6>
+                <p class="card-text">@cat.Name weighs @cat.Weight kg and is @cat.GetAge() old</p>
+                <a href="#" class="btn btn-primary">Learn more</a>
+            </div>
+        </li>
+    }
+</ul>

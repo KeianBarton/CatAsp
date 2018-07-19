@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace AspCat.Controllers
@@ -49,7 +50,7 @@ namespace AspCat.Controllers
             {
                 BirthDate = viewModel.GetBirthDate(),
                 BreedId = (int) viewModel.BreedId,
-                Name = viewModel.Name,
+                Name = char.ToUpper(viewModel.Name[0]) + viewModel.Name.Substring(1),
                 OwnerId = _userManager.GetUserId(User),
                 Weight = (double) viewModel.Weight
             };
@@ -58,6 +59,22 @@ namespace AspCat.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var cats = _context.Cats
+                .Include(c => c.Owner)
+                .Include(c => c.Breed)
+                .ToList();
+
+            var viewModel = new CatsViewModel
+            {
+                Cats = cats
+            };
+
+            return View(viewModel);
         }
     }
 }

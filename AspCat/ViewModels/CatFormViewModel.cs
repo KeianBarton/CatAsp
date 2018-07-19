@@ -13,7 +13,7 @@ namespace AspCat.ViewModels
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
-        [ValidDate(ErrorMessage = "Date of Birth is invalid; please use dd/mm/yyyy format")]
+        [ValidDate(ErrorMessage = "Date of Birth is invalid; please use a past date in the format dd/mm/yyyy")]
         [Display(Name = "Date of Birth")]
         public string BirthDateText { get; set; }
 

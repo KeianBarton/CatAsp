@@ -15,7 +15,7 @@ namespace AspCat.ViewModels.Validation
                 DateTimeStyles.None,
                 out var dateTime);
 
-            return isValid;
+            return isValid && dateTime <= DateTime.Now;
         }
     }
 }

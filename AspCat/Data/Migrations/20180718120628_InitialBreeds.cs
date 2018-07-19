@@ -13,7 +13,7 @@ namespace AspCat.Data.Migrations
                 "Maine Coon",
                 "Siamese",
                 "American Shorthair",
-                "Abyssinians",
+                "Abyssinian",
                 "Exotic Shorthair",
                 "Ragdoll",
                 "Burmese",
