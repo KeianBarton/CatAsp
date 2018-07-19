@@ -1,8 +1,8 @@
 ﻿using AspCat.Data;
 using AspCat.Models;
-using AspCat.ViewModels;
+using AspCat.Services;
+using AspCat.ViewModels.CatViewModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +13,11 @@ namespace AspCat.Controllers
     public class CatsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager _userManager;
 
         public CatsController(
             ApplicationDbContext context,
-            UserManager<ApplicationUser> userManager)
+            UserManager userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -71,7 +71,26 @@ namespace AspCat.Controllers
 
             var viewModel = new CatsViewModel
             {
-                Cats = cats
+                Cats = cats,
+                Heading = "Cats"
+            };
+
+            return View("Cats", viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Mine()
+        {
+            var cats = _context.Cats
+                .Include(c => c.Owner)
+                .Include(c => c.Breed)
+                .Where(c => c.OwnerId == _userManager.GetUserId(User))
+                .ToList();
+
+            var viewModel = new CatsViewModel
+            {
+                Cats = cats,
+                Heading = "My Cats"
             };
 
             return View(viewModel);

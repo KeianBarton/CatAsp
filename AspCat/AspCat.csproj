@@ -30,6 +30,8 @@
     <Compile Remove="Data\Migrations\20180718120115_BasicEntityConfigAndCatFormViewModel.Designer.cs" />
     <Compile Remove="Data\Migrations\20180718134333_FixedCatFormValidation.cs" />
     <Compile Remove="Data\Migrations\20180718134333_FixedCatFormValidation.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180719133819_foo.cs" />
+    <Compile Remove="Data\Migrations\20180719133819_foo.Designer.cs" />
   </ItemGroup>
 
 

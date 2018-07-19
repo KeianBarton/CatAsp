@@ -1,0 +1,14 @@
+﻿@model CatsViewModel
+@{
+    ViewData["Title"] = "My Cats";
+}
+@if (Model.Heading != null)
+{
+    <h3>@Model.Heading</h3>
+}
+<ul class="row">
+    @foreach (var cat in Model.Cats)
+    {
+        @await Html.PartialAsync("_CatCardPartial", cat);
+    }
+</ul>

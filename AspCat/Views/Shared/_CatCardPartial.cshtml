@@ -1,0 +1,12 @@
+﻿@model AspCat.Models.Cat
+<li class="cat-list col-sm-6">
+    <div class="card border-secondary m-3">
+        <div class="card-header">@Model.Name</div>
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Breed.Name</h6>
+            <p class="card-text">@Model.Name weighs @Model.Weight kg and is @Model.GetAge() old.
+                                 Owned by @Model.Owner.Name.</p>
+            <button href="#" class="btn btn-default">Learn more</button>
+        </div>
+    </div>
+</li>

@@ -18,7 +18,7 @@ namespace AspCat.Controllers
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
@@ -28,7 +28,7 @@ namespace AspCat.Controllers
         private const string RecoveryCodesKey = nameof(RecoveryCodesKey);
 
         public ManageController(
-          UserManager<ApplicationUser> userManager,
+          UserManager userManager,
           SignInManager<ApplicationUser> signInManager,
           IEmailSender emailSender,
           ILogger<ManageController> logger,
@@ -57,6 +57,7 @@ namespace AspCat.Controllers
             {
                 Username = user.UserName,
                 Email = user.Email,
+                Name = user.Name,
                 PhoneNumber = user.PhoneNumber,
                 IsEmailConfirmed = user.EmailConfirmed,
                 StatusMessage = StatusMessage
@@ -87,6 +88,16 @@ namespace AspCat.Controllers
                 if (!setEmailResult.Succeeded)
                 {
                     throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                }
+            }
+
+            var name = user.Name;
+            if (model.Name != name)
+            {
+                var setNameResult = await _userManager.SetNameAsync(user, model.Name);
+                if (!setNameResult.Succeeded)
+                {
+                    throw new ApplicationException($"Unexpected error occurred setting name for user with ID '{user.Id}'.");
                 }
             }
 

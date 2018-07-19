@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspCat.ViewModels
+namespace AspCat.ViewModels.CatViewModels
 {
     public class CatFormViewModel
     {

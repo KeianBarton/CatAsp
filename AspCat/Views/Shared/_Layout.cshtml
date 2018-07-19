@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AspCat</title>
+    <title>@ViewData["Title"] | AspCat</title>
 
     <environment include="Development">
         <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
@@ -51,6 +51,9 @@
                     </li>
                     @if (SignInManager.IsSignedIn(User))
                     {
+                        <li class="nav-item">
+                            <a asp-area="" asp-controller="Cats" asp-action="Mine" class="nav-link">My Cats</a>
+                        </li>
                         <li class="nav-item">
                             <a asp-area="" asp-controller="Cats" asp-action="Create" class="nav-link">Add a Cat</a>
                         </li>

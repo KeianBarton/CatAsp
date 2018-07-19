@@ -1,7 +1,7 @@
 ﻿using AspCat.Models;
 using System.Collections.Generic;
 
-namespace AspCat.ViewModels
+namespace AspCat.ViewModels.CatViewModels
 {
     public class CatsViewModel
     {
