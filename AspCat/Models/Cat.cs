@@ -14,6 +14,10 @@ namespace AspCat.Models
 
         public int BreedId { get; set; }
 
+        public Image Image { get; set; }
+
+        public int? ImageId { get; set; }
+
         public double Weight { get; set; }
 
         public ApplicationUser Owner { get; set; }

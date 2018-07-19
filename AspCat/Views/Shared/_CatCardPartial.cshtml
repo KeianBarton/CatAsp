@@ -3,6 +3,7 @@
     <div class="card border-secondary m-3">
         <div class="card-header">@Model.Name</div>
         <div class="card-body">
+            <img class="card-img-top" src="..." alt="Image of @Model.Name">
             <h6 class="card-subtitle mb-2 text-muted">@Model.Breed.Name</h6>
             <p class="card-text">@Model.Name weighs @Model.Weight kg and is @Model.GetAge() old.
                                  Owned by @Model.Owner.Name.</p>

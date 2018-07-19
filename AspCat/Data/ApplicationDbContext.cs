@@ -15,10 +15,13 @@ namespace AspCat.Data
         public DbSet<Cat> Cats { get; set; }
         public DbSet<Breed> Breeds { get; set; }
 
+        public DbSet<Image> Images { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new BreedConfiguration());
             builder.ApplyConfiguration(new CatConfiguration());
+            builder.ApplyConfiguration(new ImageConfiguration());
 
             base.OnModelCreating(builder);
         }

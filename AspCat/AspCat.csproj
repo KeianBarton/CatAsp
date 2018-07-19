@@ -32,6 +32,8 @@
     <Compile Remove="Data\Migrations\20180718134333_FixedCatFormValidation.Designer.cs" />
     <Compile Remove="Data\Migrations\20180719133819_foo.cs" />
     <Compile Remove="Data\Migrations\20180719133819_foo.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180719160750_AddingImages.cs" />
+    <Compile Remove="Data\Migrations\20180719160750_AddingImages.Designer.cs" />
   </ItemGroup>
 
 
