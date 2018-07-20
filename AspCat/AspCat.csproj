@@ -34,6 +34,24 @@
     <Compile Remove="Data\Migrations\20180719133819_foo.Designer.cs" />
     <Compile Remove="Data\Migrations\20180719160750_AddingImages.cs" />
     <Compile Remove="Data\Migrations\20180719160750_AddingImages.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720090416_LikesAndImages.cs" />
+    <Compile Remove="Data\Migrations\20180720090416_LikesAndImages.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720090517_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720090517_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720091625_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720091625_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720092408_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720092408_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720092630_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720092630_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720093853_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720093853_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720094652_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720094652_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720101648_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720101648_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720102329_Likes.cs" />
+    <Compile Remove="Data\Migrations\20180720102329_Likes.Designer.cs" />
   </ItemGroup>
 
 

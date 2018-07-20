@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AspCat.Models
 {
@@ -23,6 +24,13 @@ namespace AspCat.Models
         public ApplicationUser Owner { get; set; }
 
         public string OwnerId { get; set; }
+
+        public IList<Like> Likes { get; private set; }
+
+        public Cat()
+        {
+            Likes = new List<Like>();
+        }
 
         public string GetAge()
         {

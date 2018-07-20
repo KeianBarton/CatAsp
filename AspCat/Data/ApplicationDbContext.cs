@@ -17,11 +17,14 @@ namespace AspCat.Data
 
         public DbSet<Image> Images { get; set; }
 
+        public DbSet<Like> Likes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new BreedConfiguration());
             builder.ApplyConfiguration(new CatConfiguration());
             builder.ApplyConfiguration(new ImageConfiguration());
+            builder.ApplyConfiguration(new LikeConfiguration());
 
             base.OnModelCreating(builder);
         }
