@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace AspCat.ViewModels.Validation
 {
-    public class ValidDate : ValidationAttribute
+    public class ValidBirthDate : ValidationAttribute
     {
         public override bool IsValid(object value)
         {

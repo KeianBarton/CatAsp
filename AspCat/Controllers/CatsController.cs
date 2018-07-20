@@ -49,10 +49,12 @@ namespace AspCat.Controllers
             var cat = new Cat
             {
                 BirthDate = viewModel.GetBirthDate(),
+                DeathDate = viewModel.GetDeathDate(),
                 BreedId = (int) viewModel.BreedId,
                 Name = char.ToUpper(viewModel.Name[0]) + viewModel.Name.Substring(1),
                 OwnerId = _userManager.GetUserId(User),
-                Weight = (double) viewModel.Weight
+                Weight = (double) viewModel.Weight,
+                IsDeceased = viewModel.IsDeceased
             };
 
             _context.Cats.Add(cat);

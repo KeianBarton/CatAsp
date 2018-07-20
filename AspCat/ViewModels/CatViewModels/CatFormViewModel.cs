@@ -12,10 +12,14 @@ namespace AspCat.ViewModels.CatViewModels
         [MaxLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Date of Birth is required")]
-        [ValidDate(ErrorMessage = "Date of Birth is invalid; please use a past date in the format dd/mm/yyyy")]
-        [Display(Name = "Date of Birth")]
+        [Required(ErrorMessage = "Date of birth is required")]
+        [ValidBirthDate(ErrorMessage = "Date of birth is invalid; please use a past date in the format dd/mm/yyyy")]
+        [Display(Name = "Date of birth")]
         public string BirthDateText { get; set; }
+
+        [ValidDeathDate(ErrorMessage = "Date of death is invalid; please use a past date in the format dd/mm/yyyy")]
+        [Display(Name = "Date of death")]
+        public string DeathDateText { get; set; }
 
         [Required(ErrorMessage = "Breed is required")]
         [Display(Name = "Breed")]
@@ -28,9 +32,18 @@ namespace AspCat.ViewModels.CatViewModels
         [Range(1, 50, ErrorMessage = "Weight must between 1kg and 50kg")]
         public double? Weight { get; set; }
 
+        [Required]
+        [Display(Name = "Deceased?")]
+        public bool IsDeceased { get; set; }
+
         public DateTime GetBirthDate()
         {
             return DateTime.Parse(BirthDateText);
+        }
+
+        public DateTime GetDeathDate()
+        {
+            return DateTime.Parse(DeathDateText);
         }
     }
 }

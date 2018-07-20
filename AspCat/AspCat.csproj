@@ -52,6 +52,10 @@
     <Compile Remove="Data\Migrations\20180720101648_Likes.Designer.cs" />
     <Compile Remove="Data\Migrations\20180720102329_Likes.cs" />
     <Compile Remove="Data\Migrations\20180720102329_Likes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720122351_Deceased.cs" />
+    <Compile Remove="Data\Migrations\20180720122351_Deceased.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180720134440_DeceasedCats.cs" />
+    <Compile Remove="Data\Migrations\20180720134440_DeceasedCats.Designer.cs" />
   </ItemGroup>
 
 

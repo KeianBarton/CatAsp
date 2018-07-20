@@ -1,4 +1,5 @@
-﻿@model CatFormViewModel
+﻿
+@model CatFormViewModel
 @{
     ViewData["Title"] = "Add a Cat";
 }
@@ -34,6 +35,27 @@
             </select>
             <small>
                 <span asp-validation-for="BreedId" class="form-text text-muted font-italic"></span>
+            </small>
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <div class="form-inline">
+                <div class="form-group">
+                    <input asp-for="IsDeceased" class="form-control" data-toggle="collapse" data-target="#dateOfDeathField"/>
+                    <label asp-for="IsDeceased" class="control-label"></label>
+                </div>
+                <div class="ml-2 form-group collapse" id="dateOfDeathField">
+                    <label asp-for="DeathDateText" class="control-label"></label>
+                    <input asp-for="DeathDateText" class="form-control" placeholder="01/01/2000" />
+                </div>
+            </div>
+            <small>
+                <span asp-validation-for="IsDeceased" class="form-text text-muted font-italic"></span>
+            </small>
+            <small>
+                <span asp-validation-for="DeathDateText" class="form-text text-muted font-italic"></span>
             </small>
         </div>
         <div class="col-sm-6"></div>

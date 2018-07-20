@@ -18,6 +18,12 @@ namespace AspCat.Persistence.EntityConfigurations
             builder.Property(c => c.BirthDate)
                 .IsRequired();
 
+            builder.Property(c => c.IsDeceased)
+                .IsRequired();
+
+            builder.Property(c => c.DeathDate)
+                .IsRequired(false);
+
             builder.Property(c => c.Weight)
                 .IsRequired();
 

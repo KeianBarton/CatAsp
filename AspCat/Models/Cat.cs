@@ -11,9 +11,13 @@ namespace AspCat.Models
 
         public DateTime BirthDate { get; set; }
 
+        public DateTime? DeathDate { get; set; }
+
         public Breed Breed { get; set; }
 
         public int BreedId { get; set; }
+
+        public bool IsDeceased { get; set; }
 
         public Image Image { get; set; }
 
@@ -34,7 +38,15 @@ namespace AspCat.Models
 
         public string GetAge()
         {
-            var days = Math.Floor((DateTime.Now - BirthDate).TotalDays);
+            double days;
+            if (DeathDate != null)
+            {
+                days = Math.Floor((((DateTime) DeathDate) - BirthDate).TotalDays);
+            }
+            else
+            {
+                days = Math.Floor((DateTime.Now - BirthDate).TotalDays);
+            }
             var years = days / 365.2425;
             if (years < 1) {
                 var months = Math.Floor(years * 12);
