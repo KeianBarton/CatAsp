@@ -56,13 +56,23 @@
     <Compile Remove="Data\Migrations\20180720122351_Deceased.Designer.cs" />
     <Compile Remove="Data\Migrations\20180720134440_DeceasedCats.cs" />
     <Compile Remove="Data\Migrations\20180720134440_DeceasedCats.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180724103553_FKUpdates.cs" />
+    <Compile Remove="Data\Migrations\20180724103553_FKUpdates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180724104241_FKUpdates.cs" />
+    <Compile Remove="Data\Migrations\20180724104241_FKUpdates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180724104623_ImageFKUpdates.cs" />
+    <Compile Remove="Data\Migrations\20180724104623_ImageFKUpdates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180724155352_foo.cs" />
+    <Compile Remove="Data\Migrations\20180724155352_foo.Designer.cs" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>

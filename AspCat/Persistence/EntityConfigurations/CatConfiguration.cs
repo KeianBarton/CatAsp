@@ -33,13 +33,7 @@ namespace AspCat.Persistence.EntityConfigurations
             builder.Property(c => c.OwnerId)
                 .IsRequired();
 
-            builder.Property(c => c.ImageId)
-                .IsRequired(false);
-
             // Relationship configurations
-            builder.HasOne(c => c.Image)
-                .WithOne(i => i.Cat)
-                .HasForeignKey<Cat>(c => c.ImageId);
         }
     }
 }

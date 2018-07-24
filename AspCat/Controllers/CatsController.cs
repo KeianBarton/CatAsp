@@ -3,9 +3,11 @@ using AspCat.Models;
 using AspCat.Services;
 using AspCat.ViewModels.CatViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 using System.Linq;
 
 namespace AspCat.Controllers
@@ -15,7 +17,7 @@ namespace AspCat.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager _userManager;
 
-        public CatsController(
+        public CatsController (
             ApplicationDbContext context,
             UserManager userManager)
         {
@@ -57,6 +59,26 @@ namespace AspCat.Controllers
                 IsDeceased = viewModel.IsDeceased
             };
 
+            IFormFile uploadedImage = viewModel.Image;
+            if (uploadedImage != null && uploadedImage.ContentType.ToLower().StartsWith("image/"))
+            {
+                MemoryStream ms = new MemoryStream();
+                uploadedImage.OpenReadStream().CopyTo(ms);
+
+                System.Drawing.Image image = System.Drawing.Image.FromStream(ms);
+
+                var imageEntity = new Image
+                {
+                    Cat = cat,
+                    ContentType = uploadedImage.ContentType,
+                    Data = ms.ToArray(),
+                    Width = image.Width,
+                    Height = image.Height
+                };
+
+                _context.Images.Add(imageEntity);
+            }
+
             _context.Cats.Add(cat);
             _context.SaveChanges();
 
@@ -69,6 +91,8 @@ namespace AspCat.Controllers
             var cats = _context.Cats
                 .Include(c => c.Owner)
                 .Include(c => c.Breed)
+                .Include(c => c.Likes)
+                .Include(c => c.Image)
                 .ToList();
 
             var viewModel = new CatsViewModel
@@ -86,6 +110,8 @@ namespace AspCat.Controllers
             var cats = _context.Cats
                 .Include(c => c.Owner)
                 .Include(c => c.Breed)
+                .Include(c => c.Likes)
+                .Include(c => c.Image)
                 .Where(c => c.OwnerId == _userManager.GetUserId(User))
                 .ToList();
 

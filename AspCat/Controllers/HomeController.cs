@@ -22,6 +22,8 @@ namespace AspCat.Controllers
             var cats = _context.Cats
                 .Include(c => c.Owner)
                 .Include(c => c.Breed)
+                .Include(c => c.Likes)
+                .Include(c => c.Image)
                 .ToList();
 
             var viewModel = new CatsViewModel

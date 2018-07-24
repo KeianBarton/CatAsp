@@ -2,8 +2,6 @@
 {
     public class Image
     {
-        // https://code.msdn.microsoft.com/How-to-save-Image-to-978a7b0b
-
         public int Id { get; set; }
 
         public Cat Cat { get; set; }

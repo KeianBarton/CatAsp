@@ -6,9 +6,17 @@
 {
     <h3>@Model.Heading</h3>
 }
-<ul class="row">
+<ul id="cats" class="row">
     @foreach (var cat in Model.Cats)
     {
         @await Html.PartialAsync("_CatCardPartial", cat);
     }
 </ul>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            LikesController.init($("#cats"));
+        });
+    </script>
+}

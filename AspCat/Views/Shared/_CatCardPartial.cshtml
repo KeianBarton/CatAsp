@@ -1,9 +1,28 @@
-﻿@model AspCat.Models.Cat
+﻿@using AspCat.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+
+@model AspCat.Models.Cat
 <li class="cat-list col-sm-6">
     <div class="card border-secondary m-3">
-        <div class="card-header">@Model.Name</div>
+        <div class="card-header">
+            <div class="row">
+                <div class="col-10 my-auto">@Model.Name</div>
+                <div class="col-2">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="btn btn-link js-toggle-like
+                           @(Model.Likes.Select(l => l.CatId).Contains(Model.Id) ? "text-danger" : "text-secondary")
+                           " data-cat-id="@Model.Id"><i class="fas fa-heart" style="pointer-events: none"></i></a>
+                    }
+                </div>
+            </div>
+        </div>
         <div class="card-body">
-            <img class="card-img-top" src="..." alt="Image of @Model.Name">
+            @if (Model.Image != null)
+            {
+                <img class="card-img-top mb-3" src="/Images/View/@Model.Image.Id" alt="Image of @Model.Name">
+            }
             <h6 class="card-subtitle mb-2 text-muted">@Model.Breed.Name</h6>
             @if (!Model.IsDeceased)
             {

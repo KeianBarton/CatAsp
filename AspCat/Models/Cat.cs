@@ -21,8 +21,6 @@ namespace AspCat.Models
 
         public Image Image { get; set; }
 
-        public int? ImageId { get; set; }
-
         public double Weight { get; set; }
 
         public ApplicationUser Owner { get; set; }

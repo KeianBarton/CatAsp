@@ -1,4 +1,5 @@
 ﻿using AspCat.ViewModels.Validation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -36,13 +37,17 @@ namespace AspCat.ViewModels.CatViewModels
         [Display(Name = "Deceased?")]
         public bool IsDeceased { get; set; }
 
+        [Display(Name = "Image")]
+        public IFormFile Image { get; set; }
+
         public DateTime GetBirthDate()
         {
             return DateTime.Parse(BirthDateText);
         }
 
-        public DateTime GetDeathDate()
+        public DateTime? GetDeathDate()
         {
+            if (DeathDateText == null) return null;
             return DateTime.Parse(DeathDateText);
         }
     }

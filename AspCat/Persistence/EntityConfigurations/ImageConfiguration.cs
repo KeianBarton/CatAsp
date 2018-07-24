@@ -30,7 +30,8 @@ namespace AspCat.Persistence.EntityConfigurations
             // Relationship configurations
             builder.HasOne(i => i.Cat)
                 .WithOne(c => c.Image)
-                .HasForeignKey<Image>(i => i.CatId);
+                .HasForeignKey<Image>(i => i.CatId)
+                .OnDelete(DeleteBehavior.Cascade); // deleting cat should delete image
         }
     }
 }

@@ -5,7 +5,7 @@
 }
 <h2>Add a Cat</h2>
 
-<form asp-controller="Cats" asp-action="Create" method="post">
+<form asp-controller="Cats" asp-action="Create" method="post" enctype="multipart/form-data" >
     @Html.AntiForgeryToken()
     <div class="form-group row">
         <div class="col-sm-6">
@@ -69,6 +69,11 @@
             </small>
         </div>
         <div class="col-sm-6"></div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <input asp-for="Image" class="form-control" type="file" accept="image/*" />
+        </div>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-default btn-lg">Save</button>
