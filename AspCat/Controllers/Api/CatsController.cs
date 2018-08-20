@@ -25,7 +25,7 @@ namespace AspCat.Controllers.Api
 
             var cat = _context.Cats
                 .SingleOrDefault(c => c.Id == catId && c.OwnerId == userId);
-            if (cat.IsDeleted)
+            if (cat == null || cat.IsDeleted)
                 return NotFound();
 
             cat.IsDeleted = true;

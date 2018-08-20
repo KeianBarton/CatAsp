@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.IO;
 using System.Linq;
 
@@ -25,6 +26,7 @@ namespace AspCat.Controllers
             _userManager = userManager;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
@@ -106,6 +108,7 @@ namespace AspCat.Controllers
             return View("Cats", viewModel);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Mine()
         {
@@ -124,6 +127,35 @@ namespace AspCat.Controllers
             };
 
             return View(viewModel);
-        }        
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("Cats/Edit/{catId}")]
+        public IActionResult Edit(int catId)
+        {
+            var userId = _userManager.GetUserId(User);
+
+            var cat = _context.Cats
+                .Include(c => c.Image)
+                .SingleOrDefault(c => c.Id == catId && c.OwnerId == userId);
+            if (cat == null || cat.IsDeleted)
+                return NotFound();
+
+            var breeds = _context.Breeds.ToList().OrderBy(b => b.Name);
+            var viewModel = new CatFormViewModel
+            {
+                Breeds = new SelectList(breeds, "Id", "Name"),
+                Heading = "Edit a Cat",
+                BirthDateText = cat.BirthDate.ToString("dd/MM/yyyy"),
+                DeathDateText = (cat.DeathDate == null) ? "" : ((DateTime)cat.DeathDate).ToString("dd/MM/yyyy"),
+                BreedId = (byte) cat.BreedId,
+                IsDeceased = cat.IsDeceased,
+                Name = cat.Name,
+                Weight = cat.Weight,
+                // Image = TODO
+            };
+            return View("CatForm", viewModel);  // TODO - need to send to an edit version of the form, instead of create
+        }
     }
 }

@@ -4,12 +4,12 @@
 @inject UserManager<ApplicationUser> UserManager
 
 @model AspCat.Models.Cat
-<li class="cat p-0 col-sm-6">
+<li class="cat p-0 col-md-6">
     <div class="card border-secondary m-3">
         <div class="card-header">
             <div class="row">
-                <div class="col-6 my-auto text-truncate text-left">@Model.Name</div>
-                <div class="col-6 text-right">
+                <div class="col-5 my-auto text-truncate text-left">@Model.Name</div>
+                <div class="col-7 text-right">
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <a class="btn btn-link p-2 js-toggle-like
@@ -17,6 +17,8 @@
                            " data-cat-id="@Model.Id"><i class="fas fa-heart" style="pointer-events: none"></i></a>
                         @if (UserManager.GetUserId(User) == Model.OwnerId)
                         {
+                            <a asp-controller="Cats" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-link p-2 text-secondary">
+                                <i class="fas fa-pencil-alt" style="pointer-events: none"></i></a>
                             <a class="btn btn-link p-2 text-secondary js-delete-cat" data-cat-id="@Model.Id">
                                 <i class="fas fa-trash" style="pointer-events: none"></i></a>
 
