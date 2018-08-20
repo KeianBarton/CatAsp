@@ -64,6 +64,8 @@
     <Compile Remove="Data\Migrations\20180724104623_ImageFKUpdates.Designer.cs" />
     <Compile Remove="Data\Migrations\20180724155352_foo.cs" />
     <Compile Remove="Data\Migrations\20180724155352_foo.Designer.cs" />
+    <Compile Remove="Data\Migrations\20180820102722_IsDeletedIsMandatory.cs" />
+    <Compile Remove="Data\Migrations\20180820102722_IsDeletedIsMandatory.Designer.cs" />
   </ItemGroup>
 
 

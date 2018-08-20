@@ -9,6 +9,8 @@ namespace AspCat.ViewModels.CatViewModels
 {
     public class CatFormViewModel
     {
+        public string Heading { get; set; }
+
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(50, ErrorMessage = "Name cannot be longer than 50 characters")]
         public string Name { get; set; }

@@ -31,9 +31,10 @@ namespace AspCat.Controllers
             var breeds = _context.Breeds.ToList().OrderBy(b => b.Name);
             var viewModel = new CatFormViewModel
             {
-                Breeds = new SelectList(breeds, "Id", "Name")
+                Breeds = new SelectList(breeds, "Id", "Name"),
+                Heading = "Add a Cat"
             };
-            return View(viewModel);
+            return View("CatForm", viewModel);
         }
 
         [Authorize]
@@ -45,7 +46,7 @@ namespace AspCat.Controllers
             {
                 var breeds = _context.Breeds.ToList().OrderBy(b => b.Name);
                 viewModel.Breeds = new SelectList(breeds, "Id", "Name");
-                return View("Create", viewModel);
+                return View("CatForm", viewModel);
             }
 
             var cat = new Cat
@@ -93,6 +94,7 @@ namespace AspCat.Controllers
                 .Include(c => c.Breed)
                 .Include(c => c.Likes)
                 .Include(c => c.Image)
+                .Where(c => c.IsDeleted == false)
                 .ToList();
 
             var viewModel = new CatsViewModel
@@ -112,7 +114,7 @@ namespace AspCat.Controllers
                 .Include(c => c.Breed)
                 .Include(c => c.Likes)
                 .Include(c => c.Image)
-                .Where(c => c.OwnerId == _userManager.GetUserId(User))
+                .Where(c => c.OwnerId == _userManager.GetUserId(User) && c.IsDeleted == false)
                 .ToList();
 
             var viewModel = new CatsViewModel
@@ -122,6 +124,6 @@ namespace AspCat.Controllers
             };
 
             return View(viewModel);
-        }
+        }        
     }
 }

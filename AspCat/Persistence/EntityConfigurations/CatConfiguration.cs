@@ -33,6 +33,9 @@ namespace AspCat.Persistence.EntityConfigurations
             builder.Property(c => c.OwnerId)
                 .IsRequired();
 
+            builder.Property(c => c.IsDeleted)
+               .IsRequired();
+
             // Relationship configurations
         }
     }

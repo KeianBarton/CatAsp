@@ -29,6 +29,8 @@ namespace AspCat.Models
 
         public IList<Like> Likes { get; private set; }
 
+        public bool IsDeleted { get; set; }
+
         public Cat()
         {
             Likes = new List<Like>();

@@ -1,9 +1,9 @@
 ﻿
 @model CatFormViewModel
 @{
-    ViewData["Title"] = "Add a Cat";
+    ViewData["Title"] = Model.Heading;
 }
-<h2>Add a Cat</h2>
+<h2>@Model.Heading</h2>
 
 <form asp-controller="Cats" asp-action="Create" method="post" enctype="multipart/form-data" >
     @Html.AntiForgeryToken()

@@ -56,7 +56,6 @@ main {
     box-shadow: none;
 }
 
-.cat-list {
+.cat {
     list-style-type: none;
-    padding-left: 0;
 }
